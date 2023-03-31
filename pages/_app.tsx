@@ -3,7 +3,9 @@ import type { AppProps } from 'next/app';
 import { useState } from "react"
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { styled, Theme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -16,6 +18,7 @@ import Typography from '@mui/material/Typography';
 
 import '../styles/globals.css';
 import Sidebar from '../src/components/includes/Sidebar';
+import Footer from '../src/components/includes/Footer';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -33,16 +36,17 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
   const modeManage = (mode: any) => {
     setDisplayMode(pre => mode)
   }
-  
+
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={displayMode == 'darkTheme' ? darkTheme : lightTheme}>
         <CssBaseline />
         <Box sx={{ display: 'flex' }}>
           <Sidebar modeChange={modeManage} />
-
-          <Component {...pageProps} />
-
+          <Box mt={9}>
+            <Component {...pageProps} />
+          </Box>
+          {/* <Footer/> */}
         </Box>
       </ThemeProvider>
     </CacheProvider>
