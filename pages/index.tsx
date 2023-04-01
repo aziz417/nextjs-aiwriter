@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           {Array.from(Array(12)).map((_, index) => (
             <Grid item xs={4} sm={4} md={4} key={index}>
               <CategoryCard />
-            </Grid>
+            </Grid> 
           ))}
         </Grid>
       </Box>
