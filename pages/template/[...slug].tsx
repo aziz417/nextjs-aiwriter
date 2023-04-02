@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Box, Grid, Typography } from '@mui/material'
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,10 +9,7 @@ import SelectAutoComplete from '../../src/components/FormInputs/SelectAutoComple
 import SelectInput from '../../src/components/FormInputs/SelectInput';
 import Textaria from '../../src/components/FormInputs/Textaria';
 const Home: NextPage = () => {
-    const sxStyle = {
-        display: 'flex',
-
-    };
+    const [fromInputs, setFromInputs] = React.useState([]);
 
     return (
         <>
@@ -29,7 +27,9 @@ const Home: NextPage = () => {
                             <Divider sx={{ margin: '10px 0' }} />
                             <SelectAutoComplete />
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
-                            <SelectInput />
+                            <SelectInput 
+                            changeEvent={setFromInputs}
+                            />
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
                             <Textaria />
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />

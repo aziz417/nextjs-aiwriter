@@ -5,10 +5,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-export default function SelectInput() {
+export default function SelectInput(props:any) {
     const [data, setData] = React.useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
+        props.changeEvent
         setData(event.target.value as string);
     };
 
