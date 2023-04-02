@@ -8,15 +8,41 @@ import Input from '../../src/components/FormInputs/Input';
 import SelectAutoComplete from '../../src/components/FormInputs/SelectAutoComplete'
 import SelectInput from '../../src/components/FormInputs/SelectInput';
 import Textaria from '../../src/components/FormInputs/Textaria';
+import { useState } from 'react';
+
+interface FormState {
+    keyword_to_include: string;
+    language: number | null;
+}
+
+const initialFormState: FormState = {
+    keyword_to_include: "",
+    language: null,
+};
+
 const Home: NextPage = () => {
-    const [fromInputs, setFromInputs] = React.useState([]);
+    const [formData, setFormData] = useState<FormState>(initialFormState);
+
+    const dataHandale = (event: any) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    }
+
+    const dataSelectHandale = (value: any) => {
+        setFormData({ ...formData, ['language']: value?.code });
+
+        console.log(value);
+        
+    }
+    console.log(formData);
+    
 
     return (
         <>
             <Box style={{ padding: '10px 20px' }}>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2 }}>
                     <Grid item sm={12} md={4}>
-                        <Box border={1} borderRadius={2} style={{ padding: '10px 20px' }}>
+                        <Box sx={{ boxShadow: '0px 4px 4px rgba(141, 179, 201, 0.25)' }} borderRadius={1} style={{ padding: '10px 20px' }}>
 
                             <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
                                 <img width={'20px'} style={{ marginRight: '5px' }} src="/img/blog-icon.webp" />
@@ -25,17 +51,35 @@ const Home: NextPage = () => {
 
                             <Typography variant="subtitle2" gutterBottom>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, repellat?</Typography>
                             <Divider sx={{ margin: '10px 0' }} />
-                            <SelectAutoComplete />
+                            <SelectAutoComplete
+                                message={''}
+                                label={'Choose a language'}
+                                name="language"
+                                value={formData?.language}
+                                eventHandle={dataSelectHandale}
+                                requried={true}
+                            />
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
-                            <SelectInput 
-                            changeEvent={setFromInputs}
+                            <SelectInput
+                                // changeEvent={setFromInputs}
                             />
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
                             <Textaria />
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
-                            <Input />
+
+                            <Input
+                                message={''}
+                                label={'Keyword to include'}
+                                name="keyword_to_include"
+                                type="text"
+                                disabled={false}
+                                value={formData?.keyword_to_include}
+                                eventHandle={dataHandale}
+                                requried={true}
+                            />
+
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
-                            <Input />
+                            {/* <Input /> */}
                         </Box>
                     </Grid>
                     <Grid item sm={12} md={8}>

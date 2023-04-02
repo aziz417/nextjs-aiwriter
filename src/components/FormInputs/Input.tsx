@@ -4,21 +4,22 @@ import TextField from '@mui/material/TextField';
 import { type } from 'os';
 import { useState } from 'react';
 
-type inputProps = {
+interface inputProps {
     message: string;
     label: string;
     name: string;
     disabled: boolean;
+    requried: boolean;
+    value: string;
+    type: string;
+    eventHandle: (value: any) => void;
 }
 
-export default function Input() {
-const [data, setData] = useState<string>('')
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setData(event.target.value as string);
-    };
-
-    console.log(data);
+export default function Input(props: inputProps) {
     
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        props.eventHandle(event)
+    };    
 
     return (
         <Box
@@ -30,12 +31,12 @@ const [data, setData] = useState<string>('')
             autoComplete="on"
         >
             <TextField
-                id="outlined-basic"
-                label="Keyword to include"
+                id={props?.name}
                 variant="outlined"
-                placeholder="dfgdfh"
-                required={true}
-                type="password"
+                label={props?.label}
+                required={props?.requried}
+                type={ props?.type}
+                name={props?.name}
                 onChange={handleChange}
             />
 
