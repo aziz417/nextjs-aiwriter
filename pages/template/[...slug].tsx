@@ -9,6 +9,7 @@ import SelectAutoComplete from '../../src/components/FormInputs/SelectAutoComple
 import SelectInput from '../../src/components/FormInputs/SelectInput';
 import Textaria from '../../src/components/FormInputs/Textaria';
 import { useState } from 'react';
+import InputV2 from '../../src/components/FormInputs/InputV2';
 
 interface FormState {
     keyword_to_include: string;
@@ -77,6 +78,8 @@ const Home: NextPage = () => {
                                 eventHandle={dataHandale}
                                 requried={true}
                             />
+
+                            <InputV2 />
 
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
                             {/* <Input /> */}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { Typography } from '@mui/material';
 
 interface inputProps {
     message: string;
@@ -18,6 +19,7 @@ export default function SelectAutoComplete(props: inputProps) {
     };
 
     return (
+        
         <Autocomplete
             sx={{ width: 'auto' }}
             options={countries}
@@ -25,16 +27,18 @@ export default function SelectAutoComplete(props: inputProps) {
             id={props?.name}
             onChange={(event, value) => handleChange(value)}
             renderOption={(props, option) => (
-                <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                    <img
-                        loading="lazy"
-                        width="20"
-                        src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                        srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                        alt=""
-                    />
-                    {option.label}
-                </Box>
+                <>
+                    <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+                        <img
+                            loading="lazy"
+                            width="20"
+                            src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+                            srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+                            alt=""
+                        />
+                        {option.label}
+                    </Box>
+                </>
             )}
             renderInput={(params) => (
                 <TextField
@@ -175,7 +179,7 @@ const countries: readonly CountryType[] = [
     // { code: 'CX', label: 'Christmas Island', phone: '61' },
     // { code: 'CY', label: 'Cyprus', phone: '357' },
     // { code: 'CZ', label: 'Czech Republic', phone: '420' },
- 
+
     // { code: 'DJ', label: 'Djibouti', phone: '253' },
     // { code: 'DK', label: 'Denmark', phone: '45' },
     // { code: 'DM', label: 'Dominica', phone: '1-767' },
@@ -215,7 +219,7 @@ const countries: readonly CountryType[] = [
     // { code: 'GB', label: 'United Kingdom', phone: '44' },
     // { code: 'GD', label: 'Grenada', phone: '1-473' },
     // { code: 'GE', label: 'Georgia', phone: '995' },
-  
+
     // { code: 'GG', label: 'Guernsey', phone: '44' },
     // { code: 'GH', label: 'Ghana', phone: '233' },
     // { code: 'GI', label: 'Gibraltar', phone: '350' },
@@ -248,7 +252,7 @@ const countries: readonly CountryType[] = [
     // { code: 'IE', label: 'Ireland', phone: '353' },
     // { code: 'IL', label: 'Israel', phone: '972' },
     // { code: 'IM', label: 'Isle of Man', phone: '44' },
-    
+
     // {
     //     code: 'IO',
     //     label: 'British Indian Ocean Territory',
@@ -261,7 +265,7 @@ const countries: readonly CountryType[] = [
     //     phone: '98',
     // },
     // { code: 'IS', label: 'Iceland', phone: '354' },
- 
+
     // { code: 'JE', label: 'Jersey', phone: '44' },
     // { code: 'JM', label: 'Jamaica', phone: '1-876' },
     // { code: 'JO', label: 'Jordan', phone: '962' },
@@ -435,7 +439,7 @@ const countries: readonly CountryType[] = [
     // { code: 'TM', label: 'Turkmenistan', phone: '993' },
     // { code: 'TN', label: 'Tunisia', phone: '216' },
     // { code: 'TO', label: 'Tonga', phone: '676' },
-   
+
     // {
     //     code: 'TT',
     //     label: 'Trinidad and Tobago',
@@ -454,7 +458,7 @@ const countries: readonly CountryType[] = [
     // },
     // { code: 'UA', label: 'Ukraine', phone: '380' },
     // { code: 'UG', label: 'Uganda', phone: '256' },
-   
+
     // { code: 'UY', label: 'Uruguay', phone: '598' },
     // { code: 'UZ', label: 'Uzbekistan', phone: '998' },
     // {
