@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { alpha, styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import { Box, Grid, Typography } from '@mui/material'
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import { useTheme } from '@mui/material/styles';
@@ -19,13 +19,16 @@ export default function Textaria() {
             autoComplete="on"
         >
             <div>
-
-                <InputLabel shrink htmlFor="bootstrap-input">
-                    What is your paragraph about?
-                </InputLabel>
+               
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <InputLabel sx={{fontSize: '16px'}}  htmlFor="bootstrap-input">
+                        What is your paragraph about?
+                    </InputLabel>
+                    <Typography>(0/100)</Typography>
+                </Box>
                 <TextField
-                sx={{background: theme.palette.background.default}}
-                    id="outlined-multiline-static"
+                    sx={{ background: theme.palette.background.default }}
+                    id="bootstrap-input"
                     // label=""
                     multiline
                     rows={4}

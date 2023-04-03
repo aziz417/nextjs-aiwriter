@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Box, Grid, Typography } from '@mui/material'
+import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
@@ -21,7 +22,8 @@ const initialFormState: FormState = {
     language: null,
 };
 
-const Home: NextPage = () => {
+const Form: NextPage = () => {
+    const theme = useTheme();
     const [formData, setFormData] = useState<FormState>(initialFormState);
 
     const dataHandale = (event: any) => {
@@ -43,7 +45,7 @@ const Home: NextPage = () => {
             <Box style={{ padding: '10px 20px' }}>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2 }}>
                     <Grid item sm={12} md={4}>
-                        <Box sx={{ boxShadow: '0px 4px 4px rgba(141, 179, 201, 0.25)' }} borderRadius={1} style={{ padding: '10px 20px' }}>
+                        <Box sx={{ background: theme.palette.background.paper,  boxShadow: '0px 4px 4px rgba(141, 179, 201, 0.25)' }} borderRadius={1} style={{ padding: '10px 20px' }}>
 
                             <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
                                 <img width={'20px'} style={{ marginRight: '5px' }} src="/img/blog-icon.webp" />
@@ -52,6 +54,8 @@ const Home: NextPage = () => {
 
                             <Typography variant="subtitle2" gutterBottom>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, repellat?</Typography>
                             <Divider sx={{ margin: '10px 0' }} />
+                            <Textaria />
+                            <Typography variant="h6">Lenguage</Typography>
                             <SelectAutoComplete
                                 message={''}
                                 label={'Choose a language'}
@@ -65,7 +69,7 @@ const Home: NextPage = () => {
                                 // changeEvent={setFromInputs}
                             />
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
-                            <Textaria />
+                            
                             <Divider sx={{ padding: '6px 0', border: 'none' }} />
 
                             <Input
@@ -94,4 +98,4 @@ const Home: NextPage = () => {
     )
 }
 
-export default Home
+export default Form

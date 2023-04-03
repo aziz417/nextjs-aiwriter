@@ -72,13 +72,13 @@ export default function ProfileCatd() {
                 sx={{
                     width: '100%',
                     maxWidth: 360,
-                    bgcolor: 'background.paper',
+                    bgcolor: 'background.default',
                 }}
                 onClick={handleClick}
             >
                 <ListItem sx={
                     {
-                        padding: '5px 10px',
+                        padding: '2px 10px',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center'

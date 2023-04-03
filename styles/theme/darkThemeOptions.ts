@@ -8,8 +8,8 @@ const lightThemeOptions: ThemeOptions = {
       light: '#ab6161'
     },
     background:{
-      paper: '#000',
-      default: '#000'
+      paper: '#30304D',
+      default: '#22223D'
     }
   },
 };

@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Typography } from '@mui/material';
+import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
+
 
 interface inputProps {
     message: string;
@@ -18,10 +20,12 @@ export default function SelectAutoComplete(props: inputProps) {
         props.eventHandle(value)
     };
 
+    const theme = useTheme();
+
     return (
         
         <Autocomplete
-            sx={{ width: 'auto' }}
+            sx={{ width: 'auto', background: theme.palette.background.default }}
             options={countries}
             autoHighlight
             id={props?.name}

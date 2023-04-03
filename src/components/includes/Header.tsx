@@ -26,9 +26,9 @@ import ProfileCatd from '../Cards/ProfileCard';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: theme.palette.background.default,
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: theme.palette.background.default,
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -228,6 +228,7 @@ export default function PrimarySearchAppBar(props: any) {
                         <SearchIcon />
                     </SearchIconWrapper>
                     <StyledInputBase
+                        
                         placeholder="Search…"
                         inputProps={{ 'aria-label': 'search' }}
                     />

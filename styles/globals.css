@@ -18,3 +18,7 @@ a {
 .Home_container__bCOhY {
   padding: 0 1rem !important;
 }
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}

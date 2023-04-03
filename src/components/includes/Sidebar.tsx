@@ -135,18 +135,30 @@ export default function MiniDrawer(props: any) {
             <CssBaseline />
 
             <AppBar
+                sx={{
+                    background: theme.palette.background.paper,
+                    height: '62px',
+                }}
                 position="fixed" open={open}>
                 <Header sidebarManage={handleDrawerOpen} sidebarClose={handleDrawerClose} sideBarOpen={open} modeManage={props?.modeChange} />
             </AppBar>
 
             {mediaSidebar == true ? <>
                 <Drawer variant="permanent" open={open}>
-                    <DrawerHeader>
+                    <DrawerHeader sx={{
+                        position: 'fixed',
+                        width: '250px',
+                        background: theme.palette.background.paper,
+                        zIndex: '2222',
+                        borderBottom: '2px solid #ccc',
+                        boxShadow: '2px 4px 4px rgba(141, 179, 201, 0.25)'
+                        
+                    }}>
                         <Typography variant="h5">
                             AiWriter
                         </Typography>
                     </DrawerHeader>
-                    <Divider />
+                    <Divider sx={{ marginTop: '62px' }}/>
                     <List>
                         {['Inbox', 'Starred', 'Send email', 'Drafts', 'Card', 'Profile', 'Contact', 'AboutUs'].map((text, index) => (
                             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
@@ -204,7 +216,9 @@ export default function MiniDrawer(props: any) {
                         </ListItem>
                     </List>
                     <Divider />
-                    <ProfileCatd />
+                    <Box>
+                        <ProfileCatd />
+                    </Box>
                 </Drawer>
             </> : ''}
 
